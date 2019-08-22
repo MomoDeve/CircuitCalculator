@@ -21,6 +21,10 @@ namespace CircuitCalculator
         readonly string eliteNanocomputer = "Elite Nanocomputer";
         readonly string mainframe = "Mainframe";
         readonly string crystalprocessor = "Crystalprocessor";
+        readonly string nanoprocessorMainframe = "Nanoprocessor Mainframe";
+        readonly string masterQuantumcomputer = "Master Quantumcomputer";
+        readonly string wetwareprocessor = "Wetwareprocessor";
+        readonly string crystalprocessorAssembly = "Crystalprocessor Assembly";
 
         List<NumericUpDown> Numerics = new List<NumericUpDown>();
 
@@ -48,7 +52,8 @@ namespace CircuitCalculator
                     { "SMD Resistor", 2 },
                     { "SMD Diode", 2 },
                     { "Fine Copper Wire", 2 },
-                    { "Tin Bolt", 2 }
+                    { "Tin Bolt", 2 },
+                    { "Integrated Logic Circuit (Wafer-made)", 1 }
                 }
             });
 
@@ -212,6 +217,60 @@ namespace CircuitCalculator
                     { "Yttrium Barium Cuprate Bolt", 8 },
                 }
             });
+
+            Circuits.Add(nanoprocessorMainframe, new Circuit()
+            {
+                Components = new Dictionary<string, int>()
+                {
+                    { eliteNanocomputer, 2 },
+                    { "Aluminium Frame Box", 2 },
+                    { "Small Coil", 16 },
+                    { "SMD Capacitor", 32 },
+                    { "Random Access Memory Chip", 16 },
+                    { "1x Annealed Copper Wire", 32 }
+                }
+            });
+
+            Circuits.Add(masterQuantumcomputer, new Circuit()
+            {
+                Components = new Dictionary<string, int>()
+                {
+                    { quantumprocessorAssembly, 2 },
+                    { "More Advanced Circuit Board", 1 },
+                    { "NOR Memory Chip", 4 },
+                    { "SMD Diode", 8 },
+                    { "Random Access Memory Chip", 16 },
+                    { "Fine Platinum Wire", 48 }
+                }
+            });
+
+            Circuits.Add(wetwareprocessor, new Circuit()
+            {
+                Components = new Dictionary<string, int>()
+                {
+                    { quantumprocessorAssembly, 2 },
+                    { "Neuro Processing Unit", 1 },
+                    { "Crystal Processing Unit", 1 },
+                    { "Nanocomponent Central Processing Unit", 1 },
+                    { "SMD Capacitor", 32 },
+                    { "SMD Transistor", 32 },
+                    { "Fine Yttrium Barium Cuprate Wire", 8 }
+                }
+            });
+
+            Circuits.Add(crystalprocessorAssembly, new Circuit()
+            {
+                Components = new Dictionary<string, int>()
+                {
+                    { crystalprocessor, 2 },
+                    { "Elite Circuit Board", 1 },
+                    { "Crystal Processing Unit", 1 },
+                    { "Small Coil", 24 },
+                    { "SMD Capacitor", 32 },
+                    { "Random Access Memory Chip", 24 },
+                    { "Fine Yttrium Barium Cuprate Wire", 16 }
+                }
+            });
             #endregion
 
             int tabIndex = 0;
@@ -221,7 +280,7 @@ namespace CircuitCalculator
             int elementWidth = 250;
             foreach(var pair in Circuits)
             {
-                if(yOffset > 350)
+                if(yOffset > 450)
                 {
                     yOffset = 0;
                     xOffset += elementWidth + 25;
